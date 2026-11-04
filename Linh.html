@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Linh ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffb6c9, #ffdce8, #fff0f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card {
+    width: 90%;
+    max-width: 430px;
+    min-height: 430px;
+    background: rgba(255,255,255,0.94);
+    border-radius: 25px;
+    padding: 30px 22px;
+    text-align: center;
+    box-shadow: 0 10px 40px #d96b8b55;
+    position: relative;
+    overflow: hidden;
+    animation: appear .5s ease;
+}
+
+h1 {
+    color: #e84c83;
+    font-size: 27px;
+}
+
+p {
+    color: #704052;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    background: #ff6598;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+    position: relative;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.no {
+    background: #999;
+}
+
+.emoji {
+    font-size: 65px;
+    margin: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.final {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.final p {
+    font-size: 16px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    animation: float 5s linear forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card" id="app">
+
+    <!-- INTRO -->
+    <section id="intro">
+        <div class="emoji">💌</div>
+        <h1>Chào em Linh!</h1>
+
+        <p>
+            Em hãy lướt sang để trả lời những câu hỏi,
+            và em phải hoàn toàn chấp nhận và chịu trách nhiệm
+            cho những đáp án mà em sẽ chọn.
+        </p>
+
+        <p>❤️ Một bí mật đang chờ em phía trước ❤️</p>
+
+        <button onclick="show('q1')">Bắt đầu ➜</button>
+    </section>
+
+
+    <!-- CÂU HỎI 1 -->
+    <section id="q1" class="hidden">
+        <h1>Câu hỏi số 1 💗</h1>
+
+        <p>
+            Em Linh có phải đang thích anh
+            mà không dám nói đúng không?
+        </p>
+
+        <button onclick="show('a1')">A. Có ❤️</button>
+
+        <button class="no" id="no1">B. Không</button>
+    </section>
+
+
+    <!-- KẾT QUẢ 1 -->
+    <section id="a1" class="hidden">
+        <div class="emoji">🥰💖</div>
+
+        <h1>Anh biết mà!</h1>
+
+        <p>Không có gì qua được mắt anh đâu nhé!</p>
+
+        <button onclick="show('q2')">Tiếp tục ➜</button>
+    </section>
+
+
+    <!-- CÂU HỎI 2 -->
+    <section id="q2" class="hidden">
+        <h1>Câu hỏi số 2 💞</h1>
+
+        <p>
+            Em có sẵn sàng dành thời gian để tìm hiểu
+            và xây dựng một mối quan hệ đặc biệt cùng anh không?
+        </p>
+
+        <button onclick="show('a2')">A. Em có ❤️</button>
+
+        <button onclick="show('a2')">B. Em rất sẵn sàng 💕</button>
+    </section>
+
+
+    <!-- KẾT QUẢ 2 -->
+    <section id="a2" class="hidden">
+        <div class="emoji">😝👅</div>
+
+        <h1>Lêu lêu!</h1>
+
+        <p>Anh vui rồi đấy nhé! 😆</p>
+
+        <button onclick="show('q3')">Tiếp tục ➜</button>
+    </section>
+
+
+    <!-- CÂU HỎI 3 -->
+    <section id="q3" class="hidden">
+        <h1>Câu hỏi số 3 😎</h1>
+
+        <p>Em có thấy anh đẹp zai không?</p>
+
+        <button onclick="show('a3')">A. Không 😏</button>
+
+        <button onclick="show('a3')">B. Cũng không 😆</button>
+    </section>
+
+
+    <!-- KẾT QUẢ 3 -->
+    <section id="a3" class="hidden">
+        <div class="emoji">😂🤣</div>
+
+        <h1>CHÚC MỪNG!</h1>
+
+        <p>Em đã chọn đáp án CÓ! ❤️</p>
+
+        <button onclick="show('transition')">Tiếp tục ➜</button>
+    </section>
+
+
+    <!-- LỜI DẪN CÂU 4 -->
+    <section id="transition" class="hidden">
+        <div class="emoji">💌🌹</div>
+
+        <h1>Một chút nghiêm túc nhé...</h1>
+
+        <p>
+            Câu hỏi 4 là câu hỏi chủ yếu anh muốn hỏi em
+            và muốn em trả lời một cách chân thật nhất.
+        </p>
+
+        <p>Lướt sang để trả lời nhé! ❤️</p>
+
+        <button onclick="show('q4')">Lướt sang ➜</button>
+    </section>
+
+
+    <!-- CÂU HỎI 4 -->
+    <section id="q4" class="hidden">
+        <h1>Câu hỏi số 4 ❤️</h1>
+
+        <p>
+            Em có muốn một mối quan hệ tìm hiểu lâu dài
+            và nghiêm túc cùng với anh không?
+        </p>
+
+        <button onclick="show('final')">A. Có ❤️</button>
+
+        <button class="no" id="no4">B. Không</button>
+    </section>
+
+
+    <!-- TRANG CUỐI -->
+    <section id="final" class="hidden final">
+
+        <div class="emoji">🐱🌹</div>
+
+        <h1>Linh à... ❤️</h1>
+
+        <p style="text-align:left">
+
+            Linh à, anh thấy em là một cô gái
+            có trình độ và hiểu biết.
+
+            <br><br>
+
+            Anh cũng cảm thấy rất có thiện cảm với em.
+
+            <br><br>
+
+            Anh chưa từng, cũng không giỏi nói những lời
+            ngọt ngào với ai nhưng hôm nay anh muốn nói
+            với em bằng <b>celá moje srdce</b>.
+
+            <br><br>
+
+            Anh muốn được bên cạnh em,
+            được lo lắng cho em,
+            được đồng hành cùng em trên con đường sắp tới.
+
+            <br><br>
+
+            Vậy Linh cho anh cơ hội để bên em
+            và yêu thương em nha...
+
+            <br><br>
+
+            <b>❤️ Anh mong chờ câu trả lời chân thành của em. ❤️</b>
+
+        </p>
+
+        <div class="emoji">🐱💐💕</div>
+
+    </section>
+
+
+    <!-- NẾU LINH KHÔNG ĐỒNG Ý -->
+    <section id="decline" class="hidden">
+
+        <div class="emoji">🥺🌷</div>
+
+        <h1>Cảm ơn em đã thành thật!</h1>
+
+        <p>
+            Anh tôn trọng cảm xúc và quyết định của em.
+            Dù câu trả lời thế nào, anh vẫn mong em luôn vui vẻ nhé!
+        </p>
+
+        <button onclick="show('intro')">Xem lại 💌</button>
+
+    </section>
+
+</div>
+
+
+<script>
+
+// CHUYỂN TRANG
+function show(id) {
+
+    document.querySelectorAll("#app section").forEach(section => {
+        section.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+
+    if (id === "q4") {
+        startEight();
+    } else {
+        stopEight();
+    }
+}
+
+
+// NÚT KHÔNG CÂU 1 CHẠY TRỐN
+const no1 = document.getElementById("no1");
+
+function moveNo1() {
+
+    const card = document.getElementById("app");
+
+    const maxX = card.clientWidth - no1.offsetWidth - 20;
+    const maxY = card.clientHeight - no1.offsetHeight - 20;
+
+    no1.style.position = "absolute";
+    no1.style.left = Math.max(0, Math.random() * maxX) + "px";
+    no1.style.top = Math.max(0, Math.random() * maxY) + "px";
+}
+
+no1.addEventListener("mouseenter", moveNo1);
+no1.addEventListener("touchstart", moveNo1);
+
+
+// NÚT KHÔNG CÂU 4 CHẠY THEO HÌNH SỐ 8
+const no4 = document.getElementById("no4");
+
+let angle = 0;
+let animationFrame = null;
+
+function startEight() {
+
+    stopEight();
+
+    const card = document.getElementById("app");
+
+    angle = 0;
+
+    no4.style.position = "absolute";
+
+    function animate() {
+
+        angle += 0.035;
+
+        const radiusX = Math.max(
+            35,
+            Math.min(125, card.clientWidth / 3)
+        );
+
+        const radiusY = 65;
+
+        const x = radiusX * Math.sin(angle);
+        const y = radiusY * Math.sin(2 * angle);
+
+        no4.style.left =
+            (card.clientWidth / 2 + x - no4.offsetWidth / 2) + "px";
+
+        no4.style.top = (250 + y) + "px";
+
+        animationFrame = requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+function stopEight() {
+
+    if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+    }
+}
+
+
+// TRÁI TIM BAY
+setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+
+}, 500);
+
+</script>
+
+</body>
+</html>
